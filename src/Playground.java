@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Playground {
@@ -12,6 +14,7 @@ public class Playground {
         p.processPersons();
         p.groupPersons();
         p.buildPersonsMap();
+        p.flatMapExample();
     }
 
     private Collection<String> filterCollection() {
@@ -96,5 +99,28 @@ public class Playground {
                         (name1, name2) -> name1 + ";" + name2));
 
         System.out.println(map);
+    }
+
+    /*
+    transforms stream of 3 foo objects
+    into a stream of 9 bar objects
+     */
+    private void flatMapExample() {
+        List<Foo> foos = new ArrayList<>();
+
+        // create foos
+        IntStream.range(1,4)
+                 .forEach(i -> foos.add(new Foo("Foo" + i)));
+
+        // create bars
+        foos.forEach(f ->
+            IntStream.range(1,4)
+                     .forEach(i -> f.bars.add(new Bar("Bar " + i + " <- " + f.name)))
+        );
+
+        foos.stream()
+            .flatMap(f -> f.bars.stream())
+            .forEach(b -> System.out.println(b.name));
+
     }
 }
