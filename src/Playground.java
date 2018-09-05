@@ -15,6 +15,7 @@ public class Playground {
         p.groupPersons();
         p.buildPersonsMap();
         p.flatMapExample();
+        p.enhancedForLoop();
     }
 
     private Collection<String> filterCollection() {
@@ -122,5 +123,11 @@ public class Playground {
             .flatMap(f -> f.bars.stream())
             .forEach(b -> System.out.println(b.name));
 
+    }
+
+
+    private void enhancedForLoop() {
+        // inclusive start and end
+        IntStream.rangeClosed(1,10).forEachOrdered(n -> System.out.println(n));
     }
 }
