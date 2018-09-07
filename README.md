@@ -1,5 +1,13 @@
-
 ### Java standard library tips
+
+#### Building project
+
+This project was built with Java 8 using IntelliJ IDEA.
+
+This is a Maven project. 
+
+
+##### Random helpful things
 
 These will require at least Java 8 or potentially newer versions.
 
