@@ -6,6 +6,20 @@ This project was built with Java 8 using IntelliJ IDEA.
 
 This is a Maven project. 
 
+#### Executing main class on command line
+
+```java
+mvn exec:java -Dexec.mainClass="Playground"
+```
+
+
+Execute in parallel, specifying number of threads.
+
+```java
+mvn exec:java -Djava.util.concurrent.ForkJoinPool.common.parallelism=4 -Dexec.mainClass="Parallel"
+
+```
+
 
 ##### Random helpful things
 
@@ -46,6 +60,7 @@ Streams may be iterated in parallel.
 
 `Collectors.groupingBy`
 `Collectors.toMap`
+
 
 ##### Working with literal lists in javarepl
 
