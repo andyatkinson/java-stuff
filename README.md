@@ -1,12 +1,12 @@
 ## Java Playground
 
-#### Building project
+### Build
 
 This project was built with Java 8 using IntelliJ IDEA.
 
 This is a Maven project. 
 
-#### Executing main class on command line
+### Command line
 
 ```java
 mvn exec:java -Dexec.mainClass="Playground"
@@ -21,9 +21,9 @@ mvn exec:java -Djava.util.concurrent.ForkJoinPool.common.parallelism=4 -Dexec.ma
 ```
 
 
-##### Random helpful things
+### Tips
 
-These will require at least Java 8 or potentially newer versions.
+These will require Java 8+
 
 `javarepl`
 
@@ -43,9 +43,9 @@ These will require at least Java 8 or potentially newer versions.
 
 * Use a functional programming style and execute a block when object is present
 
-Immutability with builder design pattern
+### Immutables
 
-https://dzone.com/articles/immutability-with-builder-design-pattern
+<https://dzone.com/articles/immutability-with-builder-design-pattern>
 
 `stream()`
 
@@ -62,7 +62,12 @@ Streams may be iterated in parallel.
 `Collectors.toMap`
 
 
-##### Working with literal lists in javarepl
+### Lists
 
-`ArrayList<String> list = new ArrayList(Arrays.asList("Ryan", "Julie", "Bob"));`
-`List a = new ArrayList(Arrays.asList(1,2,3));`
+```java
+final ArrayList<String> list = new ArrayList(Arrays.asList("Ryan", "Julie", "Bob"));
+
+final List a = new ArrayList(Arrays.asList(1,2,3));
+
+ImmutableList.of(1, 2, 3);
+```
