@@ -1,4 +1,4 @@
-### Java standard library tips
+## Java Playground
 
 #### Building project
 

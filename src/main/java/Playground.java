@@ -3,9 +3,12 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import com.google.common.collect.ImmutableSet;
+
 
 public class Playground {
     public static void main(String[] args) {
@@ -16,6 +19,7 @@ public class Playground {
         p.buildPersonsMap();
         p.flatMapExample();
         p.enhancedForLoop();
+        p.collectionsStuff();
     }
 
     private Collection<String> filterCollection() {
@@ -129,5 +133,12 @@ public class Playground {
     private void enhancedForLoop() {
         // inclusive start and end
         IntStream.rangeClosed(1,10).forEachOrdered(n -> System.out.println(n));
+    }
+
+    private void collectionsStuff() {
+        final Set<String> strings = ImmutableSet.of("123", "456", "122");
+
+        System.out.println("Unsorted: " + strings);
+        System.out.println("Sorted strings: " + strings.stream().sorted().collect(Collectors.toSet()));
     }
 }
