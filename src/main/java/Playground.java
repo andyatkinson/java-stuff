@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -20,6 +22,8 @@ public class Playground {
         p.flatMapExample();
         p.enhancedForLoop();
         p.collectionsStuff();
+        p.collectionsConversion();
+        p.bigMaths();
     }
 
     private Collection<String> filterCollection() {
@@ -140,5 +144,42 @@ public class Playground {
 
         System.out.println("Unsorted: " + strings);
         System.out.println("Sorted strings: " + strings.stream().sorted().collect(Collectors.toSet()));
+    }
+
+    private void collectionsConversion() {
+        List<List<Integer>> outer = new ArrayList<List<Integer>>();
+
+        // array literals
+        List<Integer> row1 = Arrays.asList(new Integer[]{1, 2, 3});
+        List<Integer> row2 = Arrays.asList(new Integer[]{4, 5, 6});
+        List<Integer> row3 = Arrays.asList(new Integer[]{7, 8, 9});
+
+        outer.add(row1);
+        outer.add(row2);
+        outer.add(row3);
+
+        System.out.format("outer: %s", outer);
+
+        int[][] twoDArray = new int[outer.size()][outer.size()];
+        System.out.println("two D array: " + Arrays.toString(twoDArray));
+
+        for(int i = 0; i < outer.size(); i++) {
+            List<Integer> row = outer.get(i);
+            for(int j = 0; j < row.size(); j++) {
+                twoDArray[i][j] = row.get(j);
+            }
+        }
+
+        System.out.println("two D array: " + twoDArray);
+    }
+
+    private void bigMaths() {
+        final List<Integer> numbers = Arrays.asList(new Integer[]{1,2,3,4,5});
+
+        // divide the quantity of numbers in the list, by the sum of the items
+        final BigDecimal result = new BigDecimal(numbers.size()).divide(
+                new BigDecimal(numbers.stream().reduce(0, Integer::sum)), 6, RoundingMode.CEILING
+        );
+        System.out.println("division result, scale of 6: " + result);
     }
 }
