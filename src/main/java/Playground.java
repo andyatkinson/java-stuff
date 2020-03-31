@@ -24,6 +24,7 @@ public class Playground {
         p.collectionsStuff();
         p.collectionsConversion();
         p.bigMaths();
+        p.rangePrint();
     }
 
     private Collection<String> filterCollection() {
@@ -181,5 +182,13 @@ public class Playground {
                 new BigDecimal(numbers.stream().reduce(0, Integer::sum)), 6, RoundingMode.CEILING
         );
         System.out.println("division result, scale of 6: " + result);
+    }
+
+    private void rangePrint() {
+        System.out.print("Range: ");
+        // start inclusive, end exclusive
+        IntStream.range(0, 10).forEach(i -> {
+            System.out.print(i);
+        });
     }
 }
