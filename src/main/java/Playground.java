@@ -25,6 +25,7 @@ public class Playground {
         p.collectionsConversion();
         p.bigMaths();
         p.rangePrint();
+        p.stringRepeat();
     }
 
     private Collection<String> filterCollection() {
@@ -188,7 +189,14 @@ public class Playground {
         System.out.print("Range: ");
         // start inclusive, end exclusive
         IntStream.range(0, 10).forEach(i -> {
-            System.out.print(i);
+            System.out.println(i);
         });
+    }
+
+    private void stringRepeat() {
+        final String foo = "foo";
+        // repeats the string 4 times
+        final String repeated = new String(new char[4]).replace("\0", foo);
+        System.out.println("repeated" + repeated);
     }
 }
